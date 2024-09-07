@@ -1,0 +1,6 @@
+@Practice.FluentEmail_HostAddress = http://localhost:5181
+
+GET {{Practice.FluentEmail_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
