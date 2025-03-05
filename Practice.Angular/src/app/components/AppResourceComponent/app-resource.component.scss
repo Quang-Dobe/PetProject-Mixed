@@ -1,0 +1,15 @@
+app-signals {
+    padding: 0 20px;
+    border: 1px gray;
+
+    .app-signals {
+        &--button {
+            margin-top: 20px;
+        }
+
+        &--text {
+            margin-top: 0;
+            margin: auto;
+        }
+    }
+}

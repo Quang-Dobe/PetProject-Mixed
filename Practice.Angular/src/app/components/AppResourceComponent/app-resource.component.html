@@ -1,0 +1,9 @@
+<button class="app-signals--button"
+        type="button" 
+        (click)="onChangeSignalValue()">
+        Change signal value
+</button>
+
+@if (getUserId != -1) {
+    <h3 style="color: red;">{{ getUserId }}</h3>
+}
