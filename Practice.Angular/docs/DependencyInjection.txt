@@ -1,0 +1,18 @@
+1. Types of ProvidedIn:
+- providedIn: 'root':
+  The service is available application-wide and is a singleton. It is provided in the root injector.
+  This is the most common and recommended way to provide services that are used throughout the application.
+
+- providedIn: 'platform':
+  The service is provided in the platform injector, which is shared across all applications on the page.
+  This is less commonly used and is suitable for services that need to be shared across multiple Angular applications running on the same page.
+
+- providedIn: 'any':
+  A new instance of the service is created for each lazy-loaded module that injects it.
+  This is useful for services that should not be singletons across the entire application but should be shared within a module.
+
+- providedIn: Type<any>:
+  You can specify a specific module to provide the service in by using the module's type.
+  This means the service will be available only within that module and its children.
+
+

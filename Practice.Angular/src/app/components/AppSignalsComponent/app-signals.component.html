@@ -1,0 +1,14 @@
+<button class="app-signals--button"
+        type="button" 
+        (click)="onChangeSignalValue()">
+        Change signal value
+</button>
+
+<p class="app-singals--text" 
+   [attr.description]="descriptionDisplayValue">
+    {{ signalDisplayValue }}
+</p>
+
+@if (signalDisplayValue == 'Default value') {
+    <h3 style="color: red;">First render</h3>
+}

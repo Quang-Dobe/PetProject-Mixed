@@ -1,0 +1,6 @@
+1. Attribute and Properties:
+- Attributes are defined in the HTML and are static, while properties are part of the DOM and can change dynamically.
+- Attributes are always strings, whereas properties can be of any data type.
+- Changing an attribute does not automatically change the corresponding property and vice versa, although in many cases, they are synchronized by the browser.
+
+

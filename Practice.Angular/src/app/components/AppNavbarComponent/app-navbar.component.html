@@ -1,0 +1,7 @@
+<h3>{{ navbarTitle }}</h3>
+<button [class.active]="isActive"
+        [class.in-active]="!isActive"
+        [ngClass]="isActive === true ? 'border-active' : 'border-in-active'"
+        (click)="onChangeColor()">
+    Click
+</button>

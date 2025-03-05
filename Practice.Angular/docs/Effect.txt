@@ -1,0 +1,7 @@
+- Signals are useful because they notify interested consumers when they change. 
+  An effect is an operation that runs whenever one or more signal values change
+- Effects always run at least once. When an effect runs, it tracks any signal value reads. 
+  Whenever any of these signal values change, the effect runs again. 
+  Similar to computed signals, effects keep track of their dependencies dynamically, 
+  and only track signals which were read in the most recent execution.
+- Effects always execute asynchronously, during the change detection process.

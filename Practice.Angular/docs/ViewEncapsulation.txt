@@ -1,0 +1,6 @@
+1. Prevent Angular to generate special attribute like "_ngcontent-*", 
+make sure that component and all parent components of that component have encapsulation setting to be ViewEncapsulation.None 
+(Apply as global scss)
+
+2. Extends a component in Angular just extends class, not extends configuration of parent component 
+(Each configuration inside @Component({}))

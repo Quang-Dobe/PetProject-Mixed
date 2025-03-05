@@ -1,0 +1,8 @@
+1. Computed signals are both lazily evaluated and memoized
+- Derivation function does not run to calculate its value until the first time you read it. 
+  The calculated value is then cached, and if you read doubleCount again, 
+  it will return the cached value without recalculating.
+- If you then change count, Angular knows that it's cached value is no longer valid, 
+  and the next time you read its new value will be calculated.
+- As a result, you can safely perform computationally expensive derivations in computed signals, 
+  such as filtering arrays.

@@ -1,0 +1,21 @@
+app-navbar {
+    h3 {
+        color:aqua;
+    }
+
+    .active {
+        background-color: green;
+    }
+
+    .in-active {
+        background-color: red;
+    }
+
+    .border-active {
+        border: 1px grey;
+    }
+
+    .border-in-active {
+        border: 1px yellow;
+    }
+}
