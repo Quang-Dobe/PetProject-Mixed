@@ -7,10 +7,12 @@ import {
 } from "@angular/core";
 import { BaseComponent } from "../BaseComponent/base.component";
 import UserService from "../../services/CoreService/user.service";
+import AppButtonComponent from "../customizedComponents/app-button.component";
 
 @Component({
     selector: 'app-resource',
     standalone: true,
+    imports: [AppButtonComponent],
     encapsulation: ViewEncapsulation.None,
     templateUrl: './app-resource.component.html',
     styleUrl: './app-resource.component.scss'
