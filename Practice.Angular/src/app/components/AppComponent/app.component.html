@@ -50,7 +50,8 @@
       <p>Congratulations! Your app is running. 🎉</p>
       <!-- <app-navbar></app-navbar> -->
       <!-- <app-signals></app-signals> -->
-      <app-resource></app-resource>
+      <!-- <app-customized-button></app-customized-button> -->
+      <app-resource [oneWayData]="oneWayDataBindingValue" [(twoWayData)]="twoWayDataBindingValue" ></app-resource>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
