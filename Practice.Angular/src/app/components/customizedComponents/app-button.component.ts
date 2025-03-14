@@ -5,6 +5,7 @@ import { Component, ViewEncapsulation } from "@angular/core";
     standalone: true,
     encapsulation: ViewEncapsulation.None,
     template: '<ng-content></ng-content>',
+    styles: 'button { margin: 20px }',
     host: {
         '(click)': 'onAppButtonClick()'
     }

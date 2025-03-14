@@ -1,0 +1,10 @@
+app-data-binding {
+    border: 1px gray;
+
+    .app-data-binding {
+        &--text {
+            margin-top: 0;
+            margin: auto;
+        }
+    }
+}

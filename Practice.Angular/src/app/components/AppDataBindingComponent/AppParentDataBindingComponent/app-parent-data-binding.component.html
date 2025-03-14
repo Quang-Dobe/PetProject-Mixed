@@ -1,0 +1,10 @@
+<button (click)="onChangeOneWayDataROBindingValue()">
+    Change parent binding data
+</button>
+<p>Parent value: {{ oneWayDataROBindingValue }}</p><br>
+
+<app-child-data-binding 
+    [oneWayData]="oneWayDataBindingValue" 
+    [(twoWayData)]="twoWayDataBindingValue" 
+    (oneWayDataROChange)="onChangeChildOneWayDataROBindingValue($event)">
+</app-child-data-binding>
