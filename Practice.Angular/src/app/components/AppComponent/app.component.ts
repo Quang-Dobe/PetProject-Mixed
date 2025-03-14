@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from '../AppNavbarComponent/app-navbar.component';
 import AppSignals from '../AppSignalsComponent/app-signals.component';
 import AppResource from '../AppResourceComponent/app-resource.component';
-import AppCustomizedButton from '../AppCustomizedButtonComponents/app-customized-button.component';
+import AppCustomizedButton from '../AppCustomizedButtonComponent/app-customized-button.component';
 import AppDataBindingComponent from '../AppDataBindingComponent/app-data-binding.component';
 
 @Component({
