@@ -1,0 +1,11 @@
+<div class="app-parent-ng-content">
+    <h4>Parent contains childs' contents</h4>
+    <br>
+
+    <ng-content select='app-child-ng-content'>
+        <p class="app-parent-ng-content--text">This is the default 1st child's content</p>
+    </ng-content>
+    <ng-content>
+        <p class="app-parent-ng-content--text">This is the default 2nd child's content</p>
+    </ng-content>
+</div>
