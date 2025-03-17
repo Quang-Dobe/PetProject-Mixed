@@ -1,0 +1,16 @@
+- The <ng-content> element is neither a component nor DOM element. 
+  Instead, it is a special placeholder that tells Angular where to render content. 
+  Angular's compiler processes all <ng-content> elements at build-time. 
+  You cannot insert, remove, or modify <ng-content> at run time. 
+  You cannot add directives, styles, or arbitrary attributes to <ng-content>.
+
+- You should not conditionally include <ng-content> with @if, @for, or @switch. 
+  Angular always instantiates and creates DOM nodes for content rendered to a <ng-content> placeholder, 
+  even if that <ng-content> placeholder is hidden
+
+- If you include one or more <ng-content> placeholders with a select attribute and one <ng-content> placeholder 
+  without a select attribute, the latter captures all elements that did not match a select attribute
+
+- Angular supports a special attribute, ngProjectAs, that allows you to specify a CSS selector on any element. 
+  Whenever an element with ngProjectAs is checked against an <ng-content> placeholder, 
+  Angular compares against the ngProjectAs value instead of the element's identity
