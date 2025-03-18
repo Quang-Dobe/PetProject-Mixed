@@ -7,7 +7,6 @@ import {
     effect, 
     signal
 } from "@angular/core";
-import { BaseComponent } from "../BaseComponent/base.component";
 import CalculatorService from "../../services/CommonService/calculator.service";
 
 @Component({
@@ -18,7 +17,7 @@ import CalculatorService from "../../services/CommonService/calculator.service";
     styleUrl: './app-signals.component.scss'
 })
 
-export default class AppSignals extends BaseComponent {
+export default class AppSignals {
     private signalCounter: number = 0;
     private defaultSignalValue: string = 'Default value';
     private signalValue: WritableSignal<string> = signal(this.defaultSignalValue, { equal: this.compareObjectFunc });
@@ -37,8 +36,6 @@ export default class AppSignals extends BaseComponent {
     constructor(
         private calculatorService: CalculatorService
     ) {
-        super();
-
         effect(() => {
             console.log(`Testing on signalValue: ${this.signalValue()}`);
         });

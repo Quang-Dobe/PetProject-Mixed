@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from "@angular/core";
-import { BaseComponent } from "../BaseComponent/base.component";
 import { CommonModule } from "@angular/common";
 
 @Component({
@@ -11,7 +10,7 @@ import { CommonModule } from "@angular/common";
     encapsulation: ViewEncapsulation.None
 })
 
-export class AppNavbar extends BaseComponent {
+export class AppNavbar {
     public navbarTitle: string = "Welcome!";
     public isActive: boolean = false;
 

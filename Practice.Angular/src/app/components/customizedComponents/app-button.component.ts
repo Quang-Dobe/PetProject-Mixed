@@ -1,4 +1,10 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { 
+    Component, 
+    ViewEncapsulation, 
+    WritableSignal,
+    signal 
+} from "@angular/core";
+import RandomService from "../../services/CommonService/random.service";
 
 @Component({
     selector: 'button[type="button"]',
@@ -12,7 +18,13 @@ import { Component, ViewEncapsulation } from "@angular/core";
 })
 
 export default class AppButtonComponent {
+    public signalValueDisplay: WritableSignal<string> = signal("App-button-component!")
+
+    constructor(private randomService: RandomService) { }
+    
     public onAppButtonClick(): void {
+        this.signalValueDisplay.update(_ => this.randomService.generateRandomString(10));
+
         alert("Clicked app-button-component");
     }
 }

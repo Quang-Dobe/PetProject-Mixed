@@ -5,7 +5,6 @@ import {
     effect,
     signal, 
 } from "@angular/core";
-import { BaseComponent } from "../BaseComponent/base.component";
 import UserService from "../../services/CoreService/user.service";
 
 @Component({
@@ -16,7 +15,7 @@ import UserService from "../../services/CoreService/user.service";
     styleUrl: './app-resource.component.scss'
 })
 
-export default class AppResource extends BaseComponent {
+export default class AppResource {
     private userId: WritableSignal<number> = signal(-1);
     
     public get getUserId(): number {
@@ -24,8 +23,6 @@ export default class AppResource extends BaseComponent {
     }
 
     constructor(private userService: UserService) {
-        super();
-
         effect(() => {
             console.log(`Testing on signalValue: ${this.userId()}`);
         });

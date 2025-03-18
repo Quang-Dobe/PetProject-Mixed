@@ -1,0 +1,9 @@
+<button type="submit" *ngIf="isVisible">
+    Hola (View)
+</button>
+
+<div class="app-child-query--block" *ngIf="isVisible">
+    <ng-content select="button[type='button']"></ng-content>
+</div>
+
+<button (click)="onChangeVisibility()">Change visibility of all button</button>
