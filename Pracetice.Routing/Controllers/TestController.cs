@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace SelfLearning.Routing.Controllers
+namespace Practice.Routing.Controllers
 {
     [Route("api/test")]
     [ApiController]

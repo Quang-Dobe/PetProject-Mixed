@@ -1,6 +1,0 @@
-@SelfLearning.Routing_HostAddress = http://localhost:5169
-
-GET {{SelfLearning.Routing_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
