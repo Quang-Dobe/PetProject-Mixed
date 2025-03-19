@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-namespace SelfLearning.Benchmark
+namespace Practice.Benchmark
 {
     [MemoryDiagnoser]
     public class MyBenchmark
