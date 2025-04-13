@@ -1,0 +1,23 @@
+﻿@page "/dealers"
+@inherits DealersViewModel
+
+<PageTitle>Dealers</PageTitle>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dealer in dealers)
+        {
+            <tr>
+                <td>@dealer.Name</td>
+                <td>@dealer.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+﻿@page "/products"
+@inherits ProductsViewModel
+
+<PageTitle>Products</PageTitle>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Status.ToString()</td>
+                <td>@product.Price.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button @onclick="HandleOnClick">Add new product</button>

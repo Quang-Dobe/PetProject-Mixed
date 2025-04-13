@@ -1,0 +1,62 @@
+﻿@page "/add"
+@inherits AddProductViewModel
+@using PetProject.Razor.Components.IFSComponents;
+
+<PageTitle>Add</PageTitle>
+
+@if (product != null)
+{
+    <EditForm EditContext="EditContext" OnSubmit="HandleSubmit" FormName="AddProductForm">
+        <DataAnnotationsValidator />
+        @* <ValidationSummary /> *@
+
+        <div class="form-control m-4">
+            <label> Product's Name</label>
+            <InputText class="form-control" @bind-Value="product.Name" />
+			<ValidationMessage For="@(() => product.Name)" />
+            <br />
+        </div>
+
+        <div class="form-control m-4">
+            <label> Product's Description</label>
+            <InputText class="form-control" @bind-Value="product.Description" />
+            <ValidationMessage For="@(() => product.Description)" />
+            <br />
+        </div>
+
+        <div class="form-control m-4">
+            <label> Product's Price</label>
+            <IfsInputAmount class="form-control" @bind-Value="product.Price" DecimalPlaces="4" />
+            <ValidationMessage For="@(() => product.Price)" />
+            <br />
+        </div>
+
+        <div class="form-control m-4">
+            <label> Product's CreatedAt</label>
+            <InputDate class="form-control" @bind-Value="product.CreatedAt" />
+            <ValidationMessage For="@(() => product.CreatedAt)" />
+            <br />
+        </div>
+
+        <div class="form-control m-4">
+            <label> Product's Dealers</label>
+            <InputRadioGroup class="form-control" @bind-Value="product.DealerId">
+                @foreach (var dealer in Dealers)
+                {
+                    <div><InputRadio Value="dealer.Id" /> @dealer.Name </div>
+                }
+            </InputRadioGroup>
+            <ValidationMessage For="@(() => product.DealerId)" />
+            <br />
+        </div>
+
+        <div class="form-control m-4">
+            <label> Product's Status</label>
+            <InputCheckbox @bind-Value="product.Status" />
+            <ValidationMessage For="@(() => product.Status)" />
+            <br />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Add Product</button>
+    </EditForm>
+}
