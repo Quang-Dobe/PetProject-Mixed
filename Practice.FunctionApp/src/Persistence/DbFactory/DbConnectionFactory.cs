@@ -1,22 +1,26 @@
-﻿using Microsoft.Azure.Cosmos;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace FunctionApp.IsolatedDemo.Api.Persistence.DbFactory;
 
-internal class DbConnectionFactory : IDbConnectionFactory
+internal class DbConnectionFactory<TContainer> : IDbConnectionFactory<TContainer>
 {
-    private readonly Container _container;
+    private readonly TContainer _container;
 
-    public DbConnectionFactory(CosmosClient client, string databaseName, string containerName)
+    public DbConnectionFactory()
     {
-        _container = client.GetContainer(databaseName, containerName);
     }
 
-    public Container CreateConnectionAsync(CancellationToken cancellationToken = default)
+    public virtual TContainer CreateConnectionAsync(CancellationToken cancellationToken = default)
     {
         return _container;
     }
 
-    public void Dispose()
+	public virtual TContainer CreateConnectionAsync(IConfiguration configuration, CancellationToken cancellationToken = default)
+	{
+		return _container;
+	}
+
+	public virtual void Dispose()
     {
         GC.SuppressFinalize(this);
     }

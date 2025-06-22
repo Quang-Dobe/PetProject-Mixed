@@ -1,8 +1,10 @@
-﻿using Microsoft.Azure.Cosmos;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace FunctionApp.IsolatedDemo.Api.Persistence.DbFactory;
 
-internal interface IDbConnectionFactory : IDisposable
+internal interface IDbConnectionFactory<TContainer> : IDisposable
 {
-    public Container CreateConnectionAsync(CancellationToken cancellationToken = default);
+	TContainer CreateConnectionAsync(CancellationToken cancellationToken = default);
+
+	TContainer CreateConnectionAsync(IConfiguration configuration, CancellationToken cancellationToken = default);
 }

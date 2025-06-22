@@ -1,7 +1,6 @@
 ﻿using FunctionApp.IsolatedDemo.Api.Common;
 using FunctionApp.IsolatedDemo.Api.Common.DataFiltering;
 using FunctionApp.IsolatedDemo.Api.Domain.Entities;
-using FunctionApp.IsolatedDemo.Api.Persistence.DbFactory;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Cosmos.Linq;
 
@@ -10,11 +9,11 @@ namespace FunctionApp.IsolatedDemo.Api.Persistence.Repositories;
 internal abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
 	where TEntity : BaseEntity
 {
-	protected readonly IDbConnectionFactory _connectionFactory;
+	protected readonly ICosmosDbConnectionFactory _connectionFactory;
 	protected readonly Container _container;
 	protected bool _disposed = false;
 
-	public BaseRepository(IDbConnectionFactory connectionFactory)
+	public BaseRepository(ICosmosDbConnectionFactory connectionFactory)
 	{
 		_connectionFactory = connectionFactory;
 		_container = connectionFactory.CreateConnectionAsync();

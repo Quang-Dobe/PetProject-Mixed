@@ -7,8 +7,8 @@ using Microsoft.Azure.Cosmos;
 using FunctionApp.IsolatedDemo.Api.Infrastructure.Tracing;
 using FunctionApp.IsolatedDemo.Api.Infrastructure.Provider;
 using FunctionApp.IsolatedDemo.Api.Persistence.Repositories;
-using FunctionApp.IsolatedDemo.Api.Persistence.DbFactory;
 using FunctionApp.IsolatedDemo.Api.Application.Services;
+using FunctionApp.IsolatedDemo.Api.Persistence;
 
 namespace FunctionApp.IsolatedDemo.Api;
 
@@ -36,7 +36,7 @@ internal static class DependencyInjection
         var databaseName = configuration["Cosmos:DatabaseName"];
         var containerName = configuration["Cosmos:ContainerName"];
 
-        services.AddScoped<IDbConnectionFactory>(_ => new DbConnectionFactory(cosmosClient, databaseName, containerName));
+        services.AddScoped<ICosmosDbConnectionFactory>(_ => new CosmosDbConnectionFactory(cosmosClient, databaseName, containerName));
         services.AddScoped<INoteRepository, NoteRepository>();
 
         return services;
