@@ -36,8 +36,8 @@ internal static class DependencyInjection
         var databaseName = configuration["Cosmos:DatabaseName"];
         var containerName = configuration["Cosmos:ContainerName"];
 
-        services.AddSingleton<IDbConnectionFactory>(_ => new DbConnectionFactory(cosmosClient, databaseName, containerName));
-        services.AddSingleton<INoteRepository, NoteRepository>();
+        services.AddScoped<IDbConnectionFactory>(_ => new DbConnectionFactory(cosmosClient, databaseName, containerName));
+        services.AddScoped<INoteRepository, NoteRepository>();
 
         return services;
     }

@@ -4,7 +4,6 @@ using FunctionApp.IsolatedDemo.Api.Domain.Entities;
 using FunctionApp.IsolatedDemo.Api.Persistence.DbFactory;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Cosmos.Linq;
-using System.Xml;
 
 namespace FunctionApp.IsolatedDemo.Api.Persistence.Repositories;
 
@@ -18,7 +17,7 @@ internal abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
 	public BaseRepository(IDbConnectionFactory connectionFactory)
 	{
 		_connectionFactory = connectionFactory;
-		_container = _connectionFactory.CreateConnectionAsync();
+		_container = connectionFactory.CreateConnectionAsync();
 	}
 
 	public async Task<TEntity> CreateAsync(TEntity enttiy, CancellationToken cancellationToken = default)
