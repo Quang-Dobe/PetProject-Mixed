@@ -1,13 +1,11 @@
 ﻿using FunctionApp.IsolatedDemo.Api.Common.DataFiltering;
 using FunctionApp.IsolatedDemo.Api.Common.DataFiltering.Enums;
 using FunctionApp.IsolatedDemo.Api.Common.Extensions;
-using FunctionApp.IsolatedDemo.Api.Domain.Entities;
 using System.Linq.Expressions;
 
 namespace FunctionApp.IsolatedDemo.Api.Persistence.QueryBuilder;
 
 internal class QueryBuilder<TEntity> : IQueryBuilder<TEntity>
-	where TEntity : BaseEntity
 {
 	private IQueryable<TEntity> _query;
 

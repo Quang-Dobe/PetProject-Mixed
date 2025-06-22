@@ -22,7 +22,7 @@ internal class NoteService : INoteService
         _logger = logger;
     }
 
-    public async Task<NoteDto> CreateNoteAsync(CreateNoteRequest request, CancellationToken ct = default)
+    public async Task<NoteDto> CreateNoteAsync(CreateNoteRequest request, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrEmpty(request.Title) || string.IsNullOrEmpty(request.Body))
         {
@@ -31,13 +31,15 @@ internal class NoteService : INoteService
             return null;
         }
 
-        var newNote = await _noteRepository.CreateAsync(new Note
+        var newNote = new Note
         {
             Title = request.Title,
             Body = request.Body,
             CreatedAt = _dateTimeProvider.UtcNow,
             LastUpdatedOn = _dateTimeProvider.UtcNow
-        }, ct);
+        };
+
+		await _noteRepository.CreateAsync(newNote, cancellationToken);
 
         return new NoteDto
         {
@@ -47,4 +49,28 @@ internal class NoteService : INoteService
             Body = newNote.Body
         };
     }
+
+	public async Task<NoteDto> UpdateNoteAsync(UpdateNoteRequest request, string noteId, CancellationToken cancellationToken = default)
+	{
+		if (string.IsNullOrEmpty(request.Title) || string.IsNullOrEmpty(request.Body))
+		{
+			_logger.LogError("Title or body of note cannot be empty. Returning null by default.");
+
+			return null;
+		}
+
+        var curNote = await _noteRepository.GetByIdAsync(noteId, cancellationToken);
+        curNote.Title = request.Title;
+        curNote.Body = request.Body;
+
+		var updatedNote = await _noteRepository.UpdateAsync(curNote, cancellationToken);
+
+		return new NoteDto
+		{
+			Id = updatedNote.Id.ToString(),
+			Title = updatedNote.Title,
+			LastUpdatedOn = updatedNote.LastUpdatedOn,
+			Body = updatedNote.Body
+		};
+	}
 }

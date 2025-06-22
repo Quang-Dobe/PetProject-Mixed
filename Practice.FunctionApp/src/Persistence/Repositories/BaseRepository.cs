@@ -19,9 +19,9 @@ internal abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
 		_container = connectionFactory.CreateConnectionAsync();
 	}
 
-	public async Task<TEntity> CreateAsync(TEntity enttiy, CancellationToken cancellationToken = default)
+	public async Task<TEntity> CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
 	{
-		var result = await _container.CreateItemAsync(enttiy, cancellationToken: cancellationToken);
+		var result = await _container.CreateItemAsync(entity, cancellationToken: cancellationToken);
 
 		if (result.StatusCode == System.Net.HttpStatusCode.Created)
 		{
@@ -31,9 +31,9 @@ internal abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
 		throw new ApplicationException("Could not save entity in db.");
 	}
 
-	public async Task<TEntity> UpdateAsync(TEntity enttiy, CancellationToken cancellationToken = default)
+	public async Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
 	{
-		var result = await _container.UpsertItemAsync(enttiy, cancellationToken: cancellationToken);
+		var result = await _container.UpsertItemAsync(entity, cancellationToken: cancellationToken);
 
 		if (result.StatusCode == System.Net.HttpStatusCode.OK)
 		{
@@ -43,16 +43,16 @@ internal abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
 		throw new ApplicationException("Could not save entity in db.");
 	}
 
-	public async Task DeleteAsync(TEntity enttiy, CancellationToken cancellationToken = default)
+	public async Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
 	{
-		await DeleteByIdAsync(enttiy.Id, cancellationToken: cancellationToken);
+		await DeleteByIdAsync(entity.Id.ToString(), cancellationToken: cancellationToken);
 	}
 
-	public async Task DeleteByIdAsync(Guid id, CancellationToken cancellationToken = default)
+	public async Task DeleteByIdAsync(string id, CancellationToken cancellationToken = default)
 	{
 		var result = await _container.DeleteItemAsync<TEntity>(
-			id.ToString(), 
-			new PartitionKey("/id"), 
+			id,
+			PartitionKey.None, 
 			cancellationToken: cancellationToken);
 
 		if (result.StatusCode == System.Net.HttpStatusCode.OK)
@@ -63,11 +63,11 @@ internal abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
 		throw new ApplicationException("Could not save entity in db.");
 	}
 
-	public async Task<TEntity> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+	public async Task<TEntity> GetByIdAsync(string id, CancellationToken cancellationToken = default)
 	{
 		var result = await _container.ReadItemAsync<TEntity>(
-			id.ToString(), 
-			new PartitionKey("/id"), 
+			id,
+			PartitionKey.None, 
 			cancellationToken: cancellationToken);
 
 		if (result.StatusCode == System.Net.HttpStatusCode.OK)
