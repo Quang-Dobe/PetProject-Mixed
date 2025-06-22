@@ -5,5 +5,5 @@ internal static class AppConstants
 	internal static class HttpHeader
 	{
 		public static readonly string XCorrelationId = "x-correlationId";
-	}
+	}	
 }

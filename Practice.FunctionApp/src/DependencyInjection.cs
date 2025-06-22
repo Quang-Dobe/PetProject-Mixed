@@ -6,9 +6,9 @@ using System.Net.Http;
 using Microsoft.Azure.Cosmos;
 using FunctionApp.IsolatedDemo.Api.Infrastructure.Tracing;
 using FunctionApp.IsolatedDemo.Api.Infrastructure.Provider;
-using FunctionApp.IsolatedDemo.Api.Services;
-using FunctionApp.IsolatedDemo.Api.Persistence;
 using FunctionApp.IsolatedDemo.Api.Persistence.Repositories;
+using FunctionApp.IsolatedDemo.Api.Persistence.DbFactory;
+using FunctionApp.IsolatedDemo.Api.Application.Services;
 
 namespace FunctionApp.IsolatedDemo.Api;
 

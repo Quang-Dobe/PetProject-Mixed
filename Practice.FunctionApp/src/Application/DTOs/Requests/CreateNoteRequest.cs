@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FunctionApp.IsolatedDemo.Api.DTOs.Requests;
+namespace FunctionApp.IsolatedDemo.Api.Application.DTOs.Requests;
 
 internal class CreateNoteRequest
 {

@@ -1,4 +1,4 @@
-﻿namespace FunctionApp.IsolatedDemo.Api.DTOs.Responses;
+﻿namespace FunctionApp.IsolatedDemo.Api.Application.DTOs.Responses;
 
 internal class CreateNoteResponse
 {

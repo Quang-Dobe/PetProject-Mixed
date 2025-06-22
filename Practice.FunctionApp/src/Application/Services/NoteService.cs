@@ -1,10 +1,10 @@
-﻿using FunctionApp.IsolatedDemo.Api.Domain.Dtos;
+﻿using FunctionApp.IsolatedDemo.Api.Application.DTOs.Requests;
+using FunctionApp.IsolatedDemo.Api.Domain.Dtos;
 using FunctionApp.IsolatedDemo.Api.Domain.Entities;
-using FunctionApp.IsolatedDemo.Api.DTOs.Requests;
 using FunctionApp.IsolatedDemo.Api.Infrastructure.Provider;
 using FunctionApp.IsolatedDemo.Api.Persistence.Repositories;
 
-namespace FunctionApp.IsolatedDemo.Api.Services;
+namespace FunctionApp.IsolatedDemo.Api.Application.Services;
 
 internal class NoteService : INoteService
 {

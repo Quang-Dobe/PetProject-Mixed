@@ -2,7 +2,6 @@
 
 namespace FunctionApp.IsolatedDemo.Api.Persistence.Repositories;
 
-internal interface INoteRepository : IBaseRepository
+internal interface INoteRepository : IBaseRepository<Note>
 {
-    Task<Note> CreateAsync(Note note, CancellationToken ct = default);
 }

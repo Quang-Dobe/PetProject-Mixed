@@ -1,9 +1,10 @@
-using FunctionApp.IsolatedDemo.Api.DTOs.Responses;
-using FunctionApp.IsolatedDemo.Api.DTOs.Requests;
-using FunctionApp.IsolatedDemo.Api.Services;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
+using System.Net.Mime;
+using FunctionApp.IsolatedDemo.Api.Application.Services;
+using FunctionApp.IsolatedDemo.Api.Application.DTOs.Requests;
+using FunctionApp.IsolatedDemo.Api.Application.DTOs.Responses;
 
-namespace FunctionApp.IsolatedDemo.Api.APIs;
+namespace FunctionApp.IsolatedDemo.Api.Application.APIs;
 
 internal class NotesFunction
 {
@@ -17,8 +18,9 @@ internal class NotesFunction
     }
 
     [Function("NotesFunction")]
-	[OpenApiOperation(operationId: "NoteCreate", tags: [ "Note" ])]
-	public async Task<CreateNoteResponse> Post(
+    [OpenApiOperation(operationId: "NoteCreate", tags: ["Note"])]
+    [OpenApiRequestBody(contentType: MediaTypeNames.Application.Json, bodyType: typeof(CreateNoteRequest), Required = true, Description = "Note Create")]
+    public async Task<CreateNoteResponse> Post(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "notes")][FromBody] CreateNoteRequest createNoteRequest, CancellationToken cancellationToken = default)
     {
         _logger.LogInformation("C# HTTP trigger NotesFunction processed a request.");

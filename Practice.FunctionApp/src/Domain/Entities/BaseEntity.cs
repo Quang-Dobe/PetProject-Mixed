@@ -1,6 +1,9 @@
-﻿namespace FunctionApp.IsolatedDemo.Api.Domain.Entities;
+﻿using Newtonsoft.Json;
 
-internal abstract class BaseEntity
+namespace FunctionApp.IsolatedDemo.Api.Domain.Entities;
+
+public abstract class BaseEntity
 {
+    [JsonProperty("id")]
     public Guid Id { get; } = Guid.NewGuid();
 }

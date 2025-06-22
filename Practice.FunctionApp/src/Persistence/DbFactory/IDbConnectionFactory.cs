@@ -1,6 +1,6 @@
 ﻿using Microsoft.Azure.Cosmos;
 
-namespace FunctionApp.IsolatedDemo.Api.Persistence;
+namespace FunctionApp.IsolatedDemo.Api.Persistence.DbFactory;
 
 internal interface IDbConnectionFactory : IDisposable
 {
