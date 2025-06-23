@@ -5,5 +5,5 @@ namespace FunctionApp.IsolatedDemo.Api.Domain.Entities;
 public abstract class BaseEntity
 {
     [JsonProperty("id")]
-    public Guid Id { get; } = Guid.NewGuid();
+    public Guid Id { get; set; } = Guid.NewGuid();
 }
